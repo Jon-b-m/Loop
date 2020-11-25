@@ -7,3 +7,5 @@ github "LoopKit/dexcom-share-client-swift" "68ea5d08588e00bf148518b126416b8352db
 github "ivalkou/NightscoutAPIClient" "86cab37f6b8ee8f4192d78be0e7fc013e6bb6f52"
 github "i-schuetz/SwiftCharts" "0.6.5"
 github "ps2/rileylink_ios" "4ca67f4ac2dd5b15c6b7e19c448eb2d52b9592a7"
+github "josep1972/Base32" "d3265800b6c0ac9c0927f7989d0750017dd10ffc"
+github "josep1972/OneTimePassword" "b9ebd169d103c8ad88f90a776ee426e27dfcf7fb"

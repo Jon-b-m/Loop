@@ -13,6 +13,7 @@ import LoopKitUI
 import LoopCore
 import LoopTestingKit
 import Combine
+import LocalAuthentication
 
 final class SettingsTableViewController: UITableViewController {
 
@@ -61,6 +62,7 @@ final class SettingsTableViewController: UITableViewController {
         case microbolus
         case diagnostic
         case freeAPSSettings
+        case otp
     }
 
     fileprivate enum PumpRow: Int, CaseCountable {
@@ -209,6 +211,7 @@ final class SettingsTableViewController: UITableViewController {
                 cell.accessoryType = .disclosureIndicator
 
                 return cell
+
             case .freeAPSSettings:
                 let cell = tableView.dequeueReusableCell(withIdentifier: SettingsTableViewCell.className, for: indexPath)
 
@@ -216,6 +219,15 @@ final class SettingsTableViewController: UITableViewController {
                 cell.accessoryType = .disclosureIndicator
 
                 return cell
+              
+            case .otp:
+                    let cell = tableView.dequeueReusableCell(withIdentifier: SettingsTableViewCell.className, for: indexPath)
+
+                    cell.textLabel?.text = NSLocalizedString("One Time Password", comment: "The title text for the OTP")
+                    cell.detailTextLabel?.text = dataManager.loopManager.otpManager.created
+                    cell.accessoryType = .disclosureIndicator
+
+                    return cell
             }
         case .pump:
             switch PumpRow(rawValue: indexPath.row)! {
@@ -662,6 +674,21 @@ final class SettingsTableViewController: UITableViewController {
                 show(vc, sender: sender)
             case .dosing:
                 break
+            case .otp:
+                     let otpAuth = LAContext()
+                     otpAuth.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "Access OTP Secret" ) { success, fail in
+                        if success {
+                           DispatchQueue.main.async { [unowned self] in
+                              let vc = OTPSelectionViewController()
+                              vc.otpManager = self.dataManager.loopManager.otpManager
+                              let otpNavController = OTPNavigationController(rootViewController: vc)
+                              otpNavController.modalPresentationStyle = .fullScreen
+                              self.present(otpNavController, animated: true, completion: nil)
+                          }
+                        }
+                     }
+                     tableView.deselectRow(at: indexPath, animated: true)
+                     break
             }
         case .services:
             switch ServiceRow(rawValue: indexPath.row)! {
