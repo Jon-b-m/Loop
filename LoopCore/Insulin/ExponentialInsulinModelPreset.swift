@@ -20,11 +20,11 @@ extension ExponentialInsulinModelPreset {
     var actionDuration: TimeInterval {
         switch self {
         case .humalogNovologAdult:
-            return .minutes(360)
+            return .minutes(310)
         case .humalogNovologChild:
-            return .minutes(360)
+            return .minutes(310)
         case .fiasp:
-            return .minutes(360)
+            return .minutes(280)
         }
     }
 
