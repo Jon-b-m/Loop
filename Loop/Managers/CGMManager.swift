@@ -12,6 +12,7 @@ import ShareClient
 import MockKit
 import NightscoutAPIClient
 import BubbleClient
+import xDripClient
 
 
 let allCGMManagers: [CGMManager.Type] = [
@@ -21,6 +22,7 @@ let allCGMManagers: [CGMManager.Type] = [
     ShareClientManager.self,
     NightscoutAPIManager.self,
     BubbleClientManager.self,
+    xDripClientManager.self,
     MockCGMManager.self,
 ]
 
