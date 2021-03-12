@@ -66,10 +66,11 @@ final class AddCarbsInterfaceController: WKInterfaceController, IdentifiableClas
 
     private var absorptionTimeType: AbsorptionTimeType = .medium {
         didSet {
+            absorptionButtonD.setBackgroundColor(UIColor.darkCarbsColor)
             absorptionButtonA.setBackgroundColor(UIColor.darkCarbsColor)
             absorptionButtonB.setBackgroundColor(UIColor.darkCarbsColor)
             absorptionButtonC.setBackgroundColor(UIColor.darkCarbsColor)
-
+            
             switch absorptionTimeType {
             case .dextro:
                 absorptionButtonD.setBackgroundColor(UIColor.carbsColor)
