@@ -77,10 +77,10 @@
 /* Class = "WKInterfaceMenuItem"; title = "3 hours"; ObjectID = "fR1-7h-SNe"; */
 "fR1-7h-SNe.title" = "3 hours";
 
-/* Class = "WKInterfaceButton"; title = "🍭"; ObjectID = "gAn-qe-OvX"; */
-"gAn-qe-OvXtitle" = "🍞";
+/* Class = "WKInterfaceButton"; title = "🍞"; ObjectID = "gAn-qe-OvX"; */
+"gAn-qe-OvX.title" = "🍞";
 
-/* Class = "WKInterfaceButton"; title = "🍭"; ObjectID = "Ojm-wZ-Mqv"; */
+/* Class = "WKInterfaceButton"; title = "🍬"; ObjectID = "Ojm-wZ-Mqv"; */
 "Ojm-wZ-Mqv.title" = "🍬";
 
 /* Class = "WKInterfaceButton"; accessibilityLabel = "Subtract"; ObjectID = "hjF-xr-cwO"; */

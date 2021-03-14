@@ -185,6 +185,9 @@
                                             <items>
                                                 <button width="33" height="31" alignment="left" title="🍬" id="Ojm-wZ-Mqv">
                                                     <fontDescription key="font" type="system" pointSize="25"/>
+                                                    <attributedString key="userComments">
+                                                        <fragment content="Dextrose pill button"/>
+                                                    </attributedString>
                                                     <variation key="device=watch42mm">
                                                         <fontDescription key="font" type="system" pointSize="30"/>
                                                     </variation>
@@ -194,6 +197,9 @@
                                                 </button>
                                                 <button width="33" height="31" alignment="left" title="🍞" id="gAn-qe-OvX">
                                                     <fontDescription key="font" type="system" pointSize="25"/>
+                                                    <attributedString key="userComments">
+                                                        <fragment content="White bread button"/>
+                                                    </attributedString>
                                                     <variation key="device=watch42mm">
                                                         <fontDescription key="font" type="system" pointSize="30"/>
                                                     </variation>
@@ -202,8 +208,10 @@
                                                     </connections>
                                                 </button>
                                                 <button width="34" height="30" alignment="left" title="🌮" id="0fo-Z3-hTi">
-                                                    <color key="backgroundColor" name="carbs"/>
                                                     <fontDescription key="font" type="system" pointSize="25"/>
+                                                    <attributedString key="userComments">
+                                                        <fragment content="Medium absorption button"/>
+                                                    </attributedString>
                                                     <variation key="device=watch42mm">
                                                         <fontDescription key="font" type="system" pointSize="30"/>
                                                     </variation>
@@ -213,6 +221,9 @@
                                                 </button>
                                                 <button width="33" height="31" alignment="left" title="🍕" id="dPF-QZ-sh6">
                                                     <fontDescription key="font" type="system" pointSize="25"/>
+                                                    <attributedString key="userComments">
+                                                        <fragment content="Slow absoroption button"/>
+                                                    </attributedString>
                                                     <variation key="device=watch42mm">
                                                         <fontDescription key="font" type="system" pointSize="30"/>
                                                     </variation>
