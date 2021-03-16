@@ -21,7 +21,7 @@ final class CarbEntryViewController: ChartsTableViewController, IdentifiableClas
     var defaultAbsorptionTimes: CarbStore.DefaultAbsorptionTimes? {
         didSet {
             if let times = defaultAbsorptionTimes {
-                orderedAbsorptionTimes = [times.fast, times.medium, times.slow]
+                orderedAbsorptionTimes = [times.dextro, times.fast, times.medium, times.slow]
             }
         }
     }
@@ -451,6 +451,8 @@ extension CarbEntryViewController: FoodTypeShortcutCellDelegate {
         var absorptionTime: TimeInterval?
 
         switch cell.selectionState {
+        case .dextro:
+            absorptionTime = defaultAbsorptionTimes?.dextro
         case .fast:
             absorptionTime = defaultAbsorptionTimes?.fast
         case .medium:

@@ -17,6 +17,7 @@ import os.log
 final class AddCarbsInterfaceController: WKInterfaceController, IdentifiableClass {
 
     private enum AbsorptionTimeType {
+        case dextro
         case fast
         case medium
         case slow
@@ -70,6 +71,8 @@ final class AddCarbsInterfaceController: WKInterfaceController, IdentifiableClas
             absorptionButtonC.setBackgroundColor(UIColor.darkCarbsColor)
 
             switch absorptionTimeType {
+            case .dextro:
+                absorptionButtonD.setBackgroundColor(UIColor.carbsColor)
             case .fast:
                 absorptionButtonA.setBackgroundColor(UIColor.carbsColor)
             case .medium:
@@ -91,6 +94,10 @@ final class AddCarbsInterfaceController: WKInterfaceController, IdentifiableClas
     @IBOutlet weak var absorptionButtonB: WKInterfaceButton!
 
     @IBOutlet weak var absorptionButtonC: WKInterfaceButton!
+    
+    @IBOutlet weak var absorptionButtonD: WKInterfaceButton!
+    
+    
 
     private enum InputMode {
         case value
@@ -188,7 +195,11 @@ final class AddCarbsInterfaceController: WKInterfaceController, IdentifiableClas
     @IBAction func toggleInputMode() {
         inputMode = (inputMode == .value) ? .date : .value
     }
-
+    
+    @IBAction func setAbsorptionTimeDextro() {
+        absorptionTimeType = .dextro
+    }
+    
     @IBAction func setAbsorptionTimeFast() {
         absorptionTimeType = .fast
     }
@@ -286,6 +297,8 @@ extension AddCarbsInterfaceController {
         }
 
         switch absorptionTimeType {
+        case .dextro:
+            return defaultTimes.dextro
         case .fast:
             return defaultTimes.fast
         case .medium:
