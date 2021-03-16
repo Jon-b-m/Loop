@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="17701" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="rNf-Mh-tID">
-    <device id="watch38"/>
+    <device id="watch42"/>
     <dependencies>
         <deployment identifier="watchOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -13,51 +13,62 @@
             <objects>
                 <controller identifier="AddCarbsInterfaceController" hidesWhenLoading="NO" fullBounds="YES" id="zh0-gB-D44" customClass="AddCarbsInterfaceController" customModule="WatchApp_Extension">
                     <items>
-                        <group width="1" height="1" alignment="left" layout="vertical" spacing="1" id="uPt-Z4-ngs">
+                        <group width="135" height="1" alignment="center" verticalAlignment="center" layout="vertical" spacing="1" id="uPt-Z4-ngs">
                             <items>
                                 <group width="1" height="1" alignment="left" layout="vertical" spacing="1" id="dND-8J-Ufo">
                                     <items>
                                         <group width="1" alignment="left" layout="vertical" spacing="3" id="Rt4-VM-SJC">
                                             <items>
-                                                <group width="1" height="0.25" alignment="left" spacing="0.0" id="xDk-39-Vvo">
+                                                <group width="1" alignment="left" layout="vertical" spacing="3" id="hwe-wE-KAr">
                                                     <items>
-                                                        <group width="22" height="22" alignment="left" verticalAlignment="center" radius="11" id="EKh-K3-MEU">
+                                                        <label alignment="center" text="10:09 AM" id="Ury-of-vQg">
+                                                            <color key="textColor" systemColor="lightTextColor"/>
+                                                            <fontDescription key="font" type="system" pointSize="15"/>
+                                                        </label>
+                                                        <separator alignment="left" id="psX-Zk-dTM">
+                                                            <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </separator>
+                                                    </items>
+                                                    <gestureRecognizers>
+                                                        <tapGestureRecognizer id="ZKu-em-Fme">
+                                                            <connections>
+                                                                <action selector="toggleInputMode" destination="zh0-gB-D44" id="iNJ-Rq-8w7"/>
+                                                            </connections>
+                                                        </tapGestureRecognizer>
+                                                    </gestureRecognizers>
+                                                </group>
+                                                <group width="1" alignment="left" contentMode="scaleAspectFit" spacing="0.0" id="WLN-cX-0wl">
+                                                    <items>
+                                                        <group width="22" alignment="left" verticalAlignment="center" radius="11" id="J90-Xm-Znp">
                                                             <items>
-                                                                <button width="22" height="22" alignment="left" verticalAlignment="center" accessibilityLabel="Subtract" title="−" id="PhU-hd-rmT">
+                                                                <button width="22" height="22" alignment="left" verticalAlignment="center" accessibilityLabel="Subtract" title="−" id="Dh9-HV-fXy">
                                                                     <color key="titleColor" name="carbs"/>
                                                                     <color key="backgroundColor" name="carbs-dark"/>
                                                                     <fontDescription key="font" type="system" weight="semibold" pointSize="20"/>
                                                                     <connections>
-                                                                        <action selector="decrement" destination="zh0-gB-D44" id="rRf-FI-nIU"/>
+                                                                        <action selector="decrement" destination="zh0-gB-D44" id="FdO-GD-e1m"/>
                                                                     </connections>
                                                                 </button>
                                                             </items>
                                                         </group>
-                                                        <label height="37" alignment="center" text="--" id="pwO-G2-z1m">
+                                                        <label alignment="center" text="--" id="CWt-7U-cnK">
                                                             <color key="textColor" name="carbs"/>
                                                             <fontDescription key="font" style="UICTFontTextStyleTitle1"/>
                                                         </label>
-                                                        <group width="22" height="22" alignment="right" verticalAlignment="center" radius="11" id="L8C-JR-xtb">
+                                                        <group width="22" alignment="right" verticalAlignment="center" radius="11" id="6ip-X6-F2J">
                                                             <items>
-                                                                <button width="22" height="22" alignment="right" verticalAlignment="center" accessibilityLabel="Add" title="+" id="Wc8-hf-7XP">
+                                                                <button width="22" height="22" alignment="right" verticalAlignment="center" accessibilityLabel="Add" title="+" id="eu3-pj-GH3">
                                                                     <color key="titleColor" name="carbs"/>
                                                                     <color key="backgroundColor" name="carbs-dark"/>
                                                                     <fontDescription key="font" type="system" weight="semibold" pointSize="20"/>
                                                                     <connections>
-                                                                        <action selector="increment" destination="zh0-gB-D44" id="1Jg-sF-had"/>
+                                                                        <action selector="increment" destination="zh0-gB-D44" id="6yb-Y8-oKu"/>
                                                                     </connections>
                                                                 </button>
                                                             </items>
                                                         </group>
                                                     </items>
                                                 </group>
-                                                <label alignment="center" text="10:09 AM" id="4rD-gS-3EA">
-                                                    <color key="textColor" systemColor="lightTextColor"/>
-                                                    <fontDescription key="font" type="system" pointSize="15"/>
-                                                </label>
-                                                <separator alignment="left" id="3dF-wS-u8T">
-                                                    <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </separator>
                                             </items>
                                             <gestureRecognizers>
                                                 <tapGestureRecognizer id="m0E-PO-SUH">
@@ -67,54 +78,63 @@
                                                 </tapGestureRecognizer>
                                             </gestureRecognizers>
                                         </group>
-                                        <group width="136" height="31" alignment="center" spacing="0.0" id="1AK-c5-P95">
+                                        <group alignment="center" verticalAlignment="bottom" id="QfW-DG-1iC">
                                             <items>
-                                                <group width="134" alignment="center" verticalAlignment="center" id="Off-Iw-8z9">
+                                                <group alignment="center" verticalAlignment="center" spacing="2" id="Off-Iw-8z9">
                                                     <items>
-                                                        <button width="33" height="31" alignment="left" title="🍬" id="5c3-mu-gom">
-                                                            <fontDescription key="font" type="system" pointSize="25"/>
-                                                            <variation key="device=watch42mm">
-                                                                <fontDescription key="font" type="system" pointSize="30"/>
-                                                            </variation>
+                                                        <button height="31" alignment="left" title="🍬" id="5c3-mu-gom">
+                                                            <fontDescription key="font" type="system" pointSize="19"/>
                                                             <connections>
                                                                 <action selector="setAbsorptionTimeDextro" destination="zh0-gB-D44" id="z5I-fE-ocS"/>
                                                             </connections>
                                                         </button>
-                                                        <button width="33" height="31" alignment="left" title="🍞" id="dZO-R4-mmr">
-                                                            <fontDescription key="font" type="system" pointSize="25"/>
-                                                            <variation key="device=watch42mm">
-                                                                <fontDescription key="font" type="system" pointSize="30"/>
-                                                            </variation>
+                                                        <button height="31" alignment="left" title="🍞" id="dZO-R4-mmr">
+                                                            <fontDescription key="font" type="system" pointSize="18"/>
                                                             <connections>
                                                                 <action selector="setAbsorptionTimeFast" destination="zh0-gB-D44" id="vi9-gB-aRr"/>
                                                             </connections>
                                                         </button>
-                                                        <button width="34" height="30" alignment="left" title="🌮" id="wwZ-8Q-bhy">
+                                                        <button width="28" height="31" alignment="left" title="🌮" id="wwZ-8Q-bhy">
                                                             <color key="backgroundColor" name="carbs"/>
-                                                            <fontDescription key="font" type="system" pointSize="25"/>
-                                                            <variation key="device=watch42mm">
-                                                                <fontDescription key="font" type="system" pointSize="30"/>
+                                                            <fontDescription key="font" type="system" pointSize="15"/>
+                                                            <variation key="device=watch42mm" width="28">
+                                                                <fontDescription key="font" type="system" pointSize="16"/>
+                                                            </variation>
+                                                            <variation key="device=watch44mm">
+                                                                <fontDescription key="font" type="system" pointSize="16"/>
                                                             </variation>
                                                             <connections>
                                                                 <action selector="setAbsorptionTimeMedium" destination="zh0-gB-D44" id="IDf-3w-Tdf"/>
                                                             </connections>
                                                         </button>
-                                                        <button width="33" height="31" alignment="left" title="🍕" id="olK-qp-wh6">
-                                                            <fontDescription key="font" type="system" pointSize="25"/>
+                                                        <button height="31" alignment="left" title="🍕" id="olK-qp-wh6">
+                                                            <fontDescription key="font" type="system" pointSize="20"/>
+                                                            <variation key="device=watch38mm">
+                                                                <fontDescription key="font" type="system" pointSize="19"/>
+                                                            </variation>
                                                             <variation key="device=watch42mm">
-                                                                <fontDescription key="font" type="system" pointSize="30"/>
+                                                                <fontDescription key="font" type="system" pointSize="20"/>
+                                                            </variation>
+                                                            <variation key="device=watch44mm">
+                                                                <fontDescription key="font" type="system" pointSize="21"/>
                                                             </variation>
                                                             <connections>
                                                                 <action selector="setAbsorptionTimeSlow" destination="zh0-gB-D44" id="bEc-wO-w3l"/>
                                                             </connections>
                                                         </button>
                                                     </items>
+                                                    <variation key="device=watch38mm" spacing="1"/>
+                                                    <variation key="device=watch44mm" spacing="2"/>
                                                 </group>
                                             </items>
+                                            <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="15"/>
+                                            <variation key="device=watch38mm" spacing="0.0">
+                                                <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="13"/>
+                                            </variation>
                                         </group>
                                         <group width="1" alignment="center" verticalAlignment="bottom" id="lOU-lT-LN8">
                                             <items>
-                                                <button width="1" height="40" alignment="left" verticalAlignment="bottom" title="Add Carbs" id="1qF-ie-ABv">
+                                                <button width="1" alignment="center" verticalAlignment="bottom" title="Add Carbs" id="1qF-ie-ABv">
                                                     <color key="backgroundColor" name="carbs"/>
                                                     <fontDescription key="font" type="system" weight="semibold" pointSize="15"/>
                                                     <connections>
@@ -122,148 +142,27 @@
                                                     </connections>
                                                 </button>
                                             </items>
-                                            <variation key="device=watch40mm" radius="20" widthAdjustment="-8"/>
-                                            <variation key="device=watch44mm" radius="20" widthAdjustment="-8"/>
+                                            <variation key="device=watch40mm" widthAdjustment="-8"/>
+                                            <variation key="device=watch44mm" widthAdjustment="-8"/>
                                         </group>
                                     </items>
                                     <variation key="device=watch40mm" heightAdjustment="-2"/>
                                     <variation key="device=watch44mm" heightAdjustment="-4"/>
                                 </group>
-                                <group width="1" alignment="left" layout="vertical" spacing="3" id="hwe-wE-KAr">
-                                    <items>
-                                        <group width="1" height="0.25" alignment="left" spacing="0.0" id="WLN-cX-0wl">
-                                            <items>
-                                                <group width="22" height="22" alignment="left" verticalAlignment="center" radius="11" id="J90-Xm-Znp">
-                                                    <items>
-                                                        <button width="22" height="22" alignment="left" verticalAlignment="center" accessibilityLabel="Subtract" title="−" id="Dh9-HV-fXy">
-                                                            <color key="titleColor" name="carbs"/>
-                                                            <color key="backgroundColor" name="carbs-dark"/>
-                                                            <fontDescription key="font" type="system" weight="semibold" pointSize="20"/>
-                                                            <connections>
-                                                                <action selector="decrement" destination="zh0-gB-D44" id="FdO-GD-e1m"/>
-                                                            </connections>
-                                                        </button>
-                                                    </items>
-                                                </group>
-                                                <label height="37" alignment="center" text="--" id="CWt-7U-cnK">
-                                                    <color key="textColor" name="carbs"/>
-                                                    <fontDescription key="font" style="UICTFontTextStyleTitle1"/>
-                                                </label>
-                                                <group width="22" height="22" alignment="right" verticalAlignment="center" radius="11" id="6ip-X6-F2J">
-                                                    <items>
-                                                        <button width="22" height="22" alignment="right" verticalAlignment="center" accessibilityLabel="Add" title="+" id="eu3-pj-GH3">
-                                                            <color key="titleColor" name="carbs"/>
-                                                            <color key="backgroundColor" name="carbs-dark"/>
-                                                            <fontDescription key="font" type="system" weight="semibold" pointSize="20"/>
-                                                            <connections>
-                                                                <action selector="increment" destination="zh0-gB-D44" id="6yb-Y8-oKu"/>
-                                                            </connections>
-                                                        </button>
-                                                    </items>
-                                                </group>
-                                            </items>
-                                        </group>
-                                        <label alignment="center" text="10:09 AM" id="Ury-of-vQg">
-                                            <color key="textColor" systemColor="lightTextColor"/>
-                                            <fontDescription key="font" type="system" pointSize="15"/>
-                                        </label>
-                                        <separator alignment="left" id="psX-Zk-dTM">
-                                            <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </separator>
-                                    </items>
-                                    <gestureRecognizers>
-                                        <tapGestureRecognizer id="ZKu-em-Fme">
-                                            <connections>
-                                                <action selector="toggleInputMode" destination="zh0-gB-D44" id="iNJ-Rq-8w7"/>
-                                            </connections>
-                                        </tapGestureRecognizer>
-                                    </gestureRecognizers>
-                                </group>
-                                <group width="1" height="0.25" alignment="center" spacing="0.0" id="XMa-yL-87D">
-                                    <items>
-                                        <group width="1" alignment="left" id="c0Z-UV-XNX">
-                                            <items>
-                                                <button width="33" height="31" alignment="left" title="🍬" id="Ojm-wZ-Mqv">
-                                                    <fontDescription key="font" type="system" pointSize="25"/>
-                                                    <attributedString key="userComments">
-                                                        <fragment content="Dextrose pill button"/>
-                                                    </attributedString>
-                                                    <variation key="device=watch42mm">
-                                                        <fontDescription key="font" type="system" pointSize="30"/>
-                                                    </variation>
-                                                    <connections>
-                                                        <action selector="setAbsorptionTimeDextro" destination="zh0-gB-D44" id="qXr-ef-lmc"/>
-                                                    </connections>
-                                                </button>
-                                                <button width="33" height="31" alignment="left" title="🍞" id="gAn-qe-OvX">
-                                                    <fontDescription key="font" type="system" pointSize="25"/>
-                                                    <attributedString key="userComments">
-                                                        <fragment content="White bread button"/>
-                                                    </attributedString>
-                                                    <variation key="device=watch42mm">
-                                                        <fontDescription key="font" type="system" pointSize="30"/>
-                                                    </variation>
-                                                    <connections>
-                                                        <action selector="setAbsorptionTimeFast" destination="zh0-gB-D44" id="Eoj-WC-Fod"/>
-                                                    </connections>
-                                                </button>
-                                                <button width="34" height="30" alignment="left" title="🌮" id="0fo-Z3-hTi">
-                                                    <fontDescription key="font" type="system" pointSize="25"/>
-                                                    <attributedString key="userComments">
-                                                        <fragment content="Medium absorption button"/>
-                                                    </attributedString>
-                                                    <variation key="device=watch42mm">
-                                                        <fontDescription key="font" type="system" pointSize="30"/>
-                                                    </variation>
-                                                    <connections>
-                                                        <action selector="setAbsorptionTimeMedium" destination="zh0-gB-D44" id="GXY-aa-sz8"/>
-                                                    </connections>
-                                                </button>
-                                                <button width="33" height="31" alignment="left" title="🍕" id="dPF-QZ-sh6">
-                                                    <fontDescription key="font" type="system" pointSize="25"/>
-                                                    <attributedString key="userComments">
-                                                        <fragment content="Slow absoroption button"/>
-                                                    </attributedString>
-                                                    <variation key="device=watch42mm">
-                                                        <fontDescription key="font" type="system" pointSize="30"/>
-                                                    </variation>
-                                                    <connections>
-                                                        <action selector="setAbsorptionTimeSlow" destination="zh0-gB-D44" id="qa3-FG-c9F"/>
-                                                    </connections>
-                                                </button>
-                                            </items>
-                                        </group>
-                                    </items>
-                                </group>
-                                <group width="1" alignment="center" verticalAlignment="bottom" id="Qa8-MQ-ht1">
-                                    <items>
-                                        <button width="1" height="40" alignment="left" verticalAlignment="bottom" title="Add Carbs" id="b6f-3I-jki">
-                                            <color key="backgroundColor" name="carbs"/>
-                                            <fontDescription key="font" type="system" weight="semibold" pointSize="15"/>
-                                            <connections>
-                                                <action selector="save" destination="zh0-gB-D44" id="yLR-xy-bGK"/>
-                                            </connections>
-                                        </button>
-                                    </items>
-                                    <variation key="device=watch40mm" radius="20" widthAdjustment="-8"/>
-                                    <variation key="device=watch44mm" radius="20" widthAdjustment="-8"/>
-                                </group>
                             </items>
-                            <variation key="device=watch40mm" heightAdjustment="-2"/>
-                            <variation key="device=watch44mm" heightAdjustment="-4"/>
                         </group>
                     </items>
                     <connections>
-                        <outlet property="absorptionButtonA" destination="gAn-qe-OvX" id="mMN-LG-P3Q"/>
-                        <outlet property="absorptionButtonB" destination="0fo-Z3-hTi" id="bPH-HR-eTF"/>
-                        <outlet property="absorptionButtonC" destination="dPF-QZ-sh6" id="KfE-KO-HcS"/>
-                        <outlet property="absorptionButtonD" destination="Ojm-wZ-Mqv" id="Nd9-Rs-sJ2"/>
+                        <outlet property="absorptionButtonA" destination="dZO-R4-mmr" id="f1M-38-LDr"/>
+                        <outlet property="absorptionButtonB" destination="wwZ-8Q-bhy" id="Mjh-2H-g2M"/>
+                        <outlet property="absorptionButtonC" destination="olK-qp-wh6" id="mY2-Qi-dle"/>
+                        <outlet property="absorptionButtonD" destination="5c3-mu-gom" id="QsS-rf-wl9"/>
                         <outlet property="dateLabel" destination="Ury-of-vQg" id="tRT-Eb-SVK"/>
                         <outlet property="valueLabel" destination="CWt-7U-cnK" id="hJE-ER-FQy"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="158" y="350"/>
+            <point key="canvasLocation" x="154.47826086956522" y="360.49107142857144"/>
         </scene>
         <!--Loop-->
         <scene sceneID="gQv-2Z-iCt">
@@ -740,14 +639,14 @@
     </scenes>
     <color key="tintColor" red="0.29803921570000003" green="0.85098039219999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
-        <image name="1-hour-graph" width="70" height="70"/>
-        <image name="2-hour-graph" width="70" height="70"/>
-        <image name="3-hour-graph" width="70" height="70"/>
-        <image name="bolus" width="44" height="44"/>
-        <image name="carbs" width="44" height="44"/>
-        <image name="loop_unknown" width="26" height="26"/>
-        <image name="pre-meal" width="44" height="44"/>
-        <image name="workout" width="44" height="44"/>
+        <image name="1-hour-graph" width="94.5" height="94.5"/>
+        <image name="2-hour-graph" width="93.5" height="93.5"/>
+        <image name="3-hour-graph" width="94.5" height="94.5"/>
+        <image name="bolus" width="52" height="52"/>
+        <image name="carbs" width="52" height="52"/>
+        <image name="loop_unknown" width="29" height="29"/>
+        <image name="pre-meal" width="52" height="52"/>
+        <image name="workout" width="52" height="52"/>
         <namedColor name="carbs">
             <color red="0.3880000114440918" green="0.85500001907348633" blue="0.2199999988079071" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
