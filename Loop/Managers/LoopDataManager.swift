@@ -234,6 +234,21 @@ final class LoopDataManager {
 
     fileprivate var carbsOnBoard: CarbValue?
 
+    fileprivate var requiredCarbs: HKQuantity? {
+        didSet {
+            if settings.freeAPSSettings.showRequiredCarbsOnAppBadge {
+                let number = requiredCarbs?.doubleValue(for: .gram()) ?? 0
+                DispatchQueue.main.async {
+                    UIApplication.shared.applicationIconBadgeNumber = Int(number)
+                }
+            } else {
+                DispatchQueue.main.async {
+                    UIApplication.shared.applicationIconBadgeNumber = 0
+                }
+            }
+        }
+    }
+
     var basalDeliveryState: PumpManagerStatus.BasalDeliveryState? {
         get {
             return lockedBasalDeliveryState.value
