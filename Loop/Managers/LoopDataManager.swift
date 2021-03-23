@@ -440,6 +440,18 @@ extension LoopDataManager {
         return carbStore.insulinSensitivityScheduleApplyingOverrideHistory
     }
 
+    /// The carb sensitivity schedule, applying recent overrides relative to the current moment in time.
+    /// This is measured in <blood glucose>/gram
+    var carbSensitivityScheduleApplyingOverrideHistory: CarbSensitivitySchedule? {
+        guard let crSchedule = carbRatioScheduleApplyingOverrideHistory,
+            let isfSchedule = insulinSensitivityScheduleApplyingOverrideHistory
+        else {
+            return nil
+        }
+
+        return .carbSensitivitySchedule(insulinSensitivitySchedule: isfSchedule, carbRatioSchedule: crSchedule)
+    }
+
     /// Sets a new time zone for a the schedule-based settings
     ///
     /// - Parameter timeZone: The time zone
@@ -912,6 +924,8 @@ extension LoopDataManager {
                 throw error
             }
         }
+
+        updateRequiredCarbs()
     }
 
     private func notify(forChange context: LoopUpdateContext) {
@@ -1535,6 +1549,28 @@ extension LoopDataManager {
                 }
             }
         }
+    }
+
+    func updateRequiredCarbs() {
+        dispatchPrecondition(condition: .onQueue(dataAccessQueue))
+        guard
+            let unit = glucoseStore.preferredUnit,
+            let predictedGlucose = self.predictedGlucose?.last,
+            let csfSchedule = carbSensitivityScheduleApplyingOverrideHistory,
+            let glucoseTargetRange = settings.glucoseTargetRangeScheduleApplyingOverrideIfActive
+        else {
+            requiredCarbs = nil
+            return
+        }
+        let delta = glucoseTargetRange.minQuantity(at: predictedGlucose.startDate).doubleValue(for: unit)
+            - predictedGlucose.quantity.doubleValue(for: unit)
+        guard delta > 0 else {
+            requiredCarbs = nil
+            return
+        }
+
+        let now = Date()
+        requiredCarbs = HKQuantity(unit: .gram(), doubleValue: delta / csfSchedule.value(at: now))
     }
 }
 
