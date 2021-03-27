@@ -9,6 +9,21 @@
 import WidgetKit
 import SwiftUI
 
+
+import CoreData
+import HealthKit
+import LoopKit
+import LoopKitUI
+import LoopCore
+import LoopUI
+//import NotificationCenter
+//import SwiftCharts
+
+import Foundation
+import os.log
+
+
+
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
         SimpleEntry(date: Date())
@@ -24,8 +39,8 @@ struct Provider: TimelineProvider {
 
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
+        for minuteOffset in 0 ..< 2 {
+            let entryDate = Calendar.current.date(byAdding: .minute, value: minuteOffset, to: currentDate)!
             let entry = SimpleEntry(date: entryDate)
             entries.append(entry)
         }
@@ -39,16 +54,57 @@ struct SimpleEntry: TimelineEntry {
     let date: Date
 }
 
+func testSampleQuery() {
+        var sampleType = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bloodGlucose)
+
+    let bloodGlucoseType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bloodGlucose) ?? <#default value#>
+    
+    let mmol = HKUnit(from: "mmol/l")
+    
+    let query1 = HKDiscreteQuantitySample.init(type: bloodGlucoseType, quantity: <#T##HKQuantity#>, start: <#T##Date#>, end: <#T##Date#>)
+
+    guard let quantityType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bloodGlucose) else {
+        fatalError("*** Unable to create a blood glucose quantity type ***")
+    }
+     
+    
+    let query = HKSampleQuery.init(sampleType: sampleType!,
+                                           predicate: nil,
+                                           limit: 1,
+                                           sortDescriptors: nil) { (query, results, error) in
+            print(results ?? 100)
+        }
+
+        let healthStore = HKHealthStore()
+        
+        healthStore.execute(query)
+    
+}
+
 struct HomeWidgetEntryView : View {
     var entry: Provider.Entry
+    
+   
+//    var query: HKQuery =
 
+    
+    
+    
+    
+//  var latestGlucose = healthStore.executeQuery(query)
     var body: some View {
-        Text(entry.date, style: .time)
+       
+        VStack {
+            Text(entry.date, style: .time)
+            Text("BS: ")
+            Text("Batterinivå: 88 %")
+        }
     }
 }
 
 @main
 struct HomeWidget: Widget {
+    
     let kind: String = "HomeWidget"
 
     var body: some WidgetConfiguration {
@@ -64,6 +120,8 @@ struct HomeWidget: Widget {
 struct HomeWidget_Previews: PreviewProvider {
     static var previews: some View {
         HomeWidgetEntryView(entry: SimpleEntry(date: Date()))
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
+            .previewContext(WidgetPreviewContext(family: .systemMedium))
     }
 }
+
+
