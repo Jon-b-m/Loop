@@ -1,0 +1,3 @@
+files:
+  - source: Loop/Base.lproj/Localizable.strings
+    translation: Loop/%osx_locale%.lproj/Localizable.strings
