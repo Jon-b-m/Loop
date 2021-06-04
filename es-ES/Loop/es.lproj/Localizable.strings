@@ -334,7 +334,7 @@
 "Reservoir" = "Reservoir";
 
 /* Title of the prediction input effect for retrospective correction */
-"Retrospective Correction" = "Retrospective Correction";
+"Retrospective Correction" = "Corrección Retrospectiva";
 
 /* The title of the notification action to retry a bolus command */
 "Retry" = "Retry";
